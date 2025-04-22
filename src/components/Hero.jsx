@@ -1,0 +1,43 @@
+import React from 'react';
+import { Search, ChevronDown } from 'lucide-react';
+
+function Hero() {
+  return (
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-64">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
+            Ocean of <span className="text-blue-300">Careers</span>
+          </h1>
+          <p className="mt-8 text-xl text-blue-100 leading-relaxed">
+            Your trusted partner in finding the perfect talent. We combine speed and expertise to connect exceptional candidates with outstanding opportunities.
+          </p>
+          
+          <div className="mt-12">
+            <div className="bg-white/10 backdrop-blur-lg p-2 rounded-2xl shadow-xl">
+              <div className="flex flex-col md:flex-row gap-4 p-4">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search for jobs..."
+                    className="w-full pl-12 pr-4 py-3 bg-white rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                  />
+                </div>
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-medium transition-colors duration-200 shadow-lg shadow-blue-500/25">
+                  Search Jobs
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="h-8 w-8 text-white opacity-75" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Hero;
