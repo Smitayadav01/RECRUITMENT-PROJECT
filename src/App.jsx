@@ -1,8 +1,8 @@
 import React from 'react';
-import { Users, Briefcase, Building2, Search, Award } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Blog from './components/Blog';
 import About from './components/About';
 import Footer from './components/Footer';
 
@@ -12,6 +12,7 @@ function App() {
       <Navbar />
       <Hero />
       <Services />
+      <Blog />
       <About />
       <Footer />
     </div>
