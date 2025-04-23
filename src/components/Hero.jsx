@@ -3,7 +3,7 @@ import { Search, ChevronDown } from 'lucide-react';
 
 function Hero() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
+    <div id="home" className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-64">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">

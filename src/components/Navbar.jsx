@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Users, Menu, X } from 'lucide-react';
 import JobForm from './JobForm';
+import logo from '../assets/logo.png';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,29 +9,27 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-lg shadow-lg">
+      <nav className="fixed w-full z-50 bg-white/100 backdrop-blur-lg shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
-                <Users className="h-10 w-10 text-blue-600" />
-                <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  Arihant Consultants
-                </span>
+              <img src={logo} alt="Arihant Consultants Logo" className="h-40 w-auto object" />
               </div>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
+              <a href="#home" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">Home</a>
+              <a href="#about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">About</a>
               <a href="#services" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">Services</a>
               <a href="#blog" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">Blog</a>
-              <a href="#about" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">About</a>
               <a href="#contact" className="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200">Contact</a>
               <button 
                 onClick={() => setIsJobFormOpen(true)}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors duration-200 shadow-lg shadow-blue-600/25"
               >
-                Post a Job
+                Job Application
               </button>
             </div>
 
