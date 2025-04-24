@@ -3,13 +3,13 @@ import { Search, ChevronDown } from 'lucide-react';
 
 function Hero() {
   return (
-    <div id="home" className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600">
+    <div id="home" className="relative min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-gray-700">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-64">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-            Ocean of <span className="text-blue-300">Careers</span>
+            Ocean of <span className="text-purple-200">Careers</span>
           </h1>
-          <p className="mt-8 text-xl text-blue-100 leading-relaxed">
+          <p className="mt-8 text-xl text-purple-100 leading-relaxed">
             Your trusted partner in finding the perfect talent. We combine speed and expertise to connect exceptional candidates with outstanding opportunities.
           </p>
           
@@ -21,10 +21,10 @@ function Hero() {
                   <input
                     type="text"
                     placeholder="Search for jobs..."
-                    className="w-full pl-12 pr-4 py-3 bg-white rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    className="w-full pl-12 pr-4 py-3 bg-white rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"
                   />
                 </div>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-xl font-medium transition-colors duration-200 shadow-lg shadow-blue-500/25">
+                <button className="bg-purple-700 hover:bg-purple-600 text-white px-8 py-3 rounded-xl font-medium transition-colors duration-200 shadow-lg shadow-purple-900/25">
                   Search Jobs
                 </button>
               </div>

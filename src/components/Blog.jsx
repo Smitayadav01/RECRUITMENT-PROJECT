@@ -57,7 +57,7 @@ function Blog() {
         <div className="max-w-4xl mx-auto px-4 py-12">
           <button
             onClick={() => setSelectedPost(null)}
-            className="mb-8 flex items-center text-gray-600 hover:text-gray-900"
+            className="mb-8 flex items-center text-gray-600 hover:text-purple-900"
           >
             <X className="h-6 w-6 mr-2" />
             Back to Blog
@@ -101,7 +101,7 @@ function Blog() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
         </div>
@@ -109,9 +109,9 @@ function Blog() {
         {Object.entries(groupedPosts).map(([category, categoryPosts]) => (
           <div key={category} className="mb-16">
             <div className="flex flex-col items-center text-center mb-12">
-              {category === 'Success Stories' && <Award className="h-12 w-12 text-blue-600" />}
-              {category === 'Career Guidance' && <BookOpen className="h-12 w-12 text-blue-600" />}
-              {category === 'Company Achievements' && <Users className="h-12 w-12 text-blue-600" />}
+              {category === 'Success Stories' && <Award className="h-12 w-12 text-purple-900" />}
+              {category === 'Career Guidance' && <BookOpen className="h-12 w-12 text-purple-900" />}
+              {category === 'Company Achievements' && <Users className="h-12 w-12 text-purple-900" />}
               <h2 className="mt-4 text-3xl font-extrabold text-gray-900">{category}</h2>
             </div>
 
@@ -141,7 +141,7 @@ function Blog() {
                       </p>
                       <button
                         onClick={() => setSelectedPost(post)}
-                        className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+                        className="inline-flex items-center text-purple-900 hover:text-purple-700 font-medium"
                       >
                         Read Full Story
                         <ArrowRight className="h-4 w-4 ml-2" />

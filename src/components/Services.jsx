@@ -4,17 +4,17 @@ import { Users, Briefcase, Building2, HeartHandshake, Target, GraduationCap } fr
 function Services() {
   const clientServices = [
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <Users className="h-8 w-8 text-purple-900" />,
       title: "Talent Sourcing & Acquisition",
       description: "Connect with top-tier talent across various industries through our premium placement services."
     },
     {
-      icon: <Briefcase className="h-8 w-8 text-blue-600" />,
+      icon: <Briefcase className="h-8 w-8 text-purple-900" />,
       title: "Job Posting & Advertising",
       description: "Strategic job advertising and posting services to reach the right candidates."
     },
     {
-      icon: <Target className="h-8 w-8 text-blue-600" />,
+      icon: <Target className="h-8 w-8 text-purple-900" />,
       title: "Candidate Screening",
       description: "Multiple screening rounds prior to final interviews, increasing success probability."
     }
@@ -22,17 +22,17 @@ function Services() {
 
   const candidateServices = [
     {
-      icon: <HeartHandshake className="h-8 w-8 text-blue-600" />,
+      icon: <HeartHandshake className="h-8 w-8 text-purple-900" />,
       title: "Career Counselling",
       description: "Professional guidance for career development and growth opportunities."
     },
     {
-      icon: <GraduationCap className="h-8 w-8 text-blue-600" />,
+      icon: <GraduationCap className="h-8 w-8 text-purple-900" />,
       title: "Interview Preparation",
       description: "Comprehensive interview preparation and negotiation support."
     },
     {
-      icon: <Building2 className="h-8 w-8 text-blue-600" />,
+      icon: <Building2 className="h-8 w-8 text-purple-900" />,
       title: "Resume Advisory",
       description: "Expert resume advice to help you stand out in the job market."
     }

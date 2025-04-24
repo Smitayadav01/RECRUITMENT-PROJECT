@@ -11,9 +11,9 @@ function About() {
   ];
 
   const achievements = [
-    { title: "85%+ Conversion Rate", icon: <Target className="h-6 w-6 text-blue-600" /> },
-    { title: "Minimal Attrition Rate", icon: <Users className="h-6 w-6 text-blue-600" /> },
-    { title: "Primary Recruitment Source", icon: <CheckCircle2 className="h-6 w-6 text-blue-600" /> }
+    { title: "85%+ Conversion Rate", icon: <Target className="h-6 w-6 text-purple-900" /> },
+    { title: "Minimal Attrition Rate", icon: <Users className="h-6 w-6 text-purple-900" /> },
+    { title: "Primary Recruitment Source", icon: <CheckCircle2 className="h-6 w-6 text-purple-900" /> }
   ];
 
   return (
@@ -33,8 +33,8 @@ function About() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Core Values</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {coreValues.map((value, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                  <h4 className="text-lg font-semibold text-blue-600">{value.title}</h4>
+                <div key={index} className="bg-purple-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-purple-900">{value.title}</h4>
                   <p className="mt-2 text-gray-600">{value.description}</p>
                 </div>
               ))}
@@ -45,7 +45,7 @@ function About() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Achievements</h3>
             <div className="space-y-6">
               {achievements.map((achievement, index) => (
-                <div key={index} className="flex items-center bg-gray-50 p-6 rounded-lg">
+                <div key={index} className="flex items-center bg-purple-50 p-6 rounded-lg">
                   {achievement.icon}
                   <span className="ml-4 text-lg font-medium text-gray-900">
                     {achievement.title}
@@ -58,7 +58,7 @@ function About() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Process</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Award className="h-6 w-6 text-blue-600" />
+                  <Award className="h-6 w-6 text-purple-900" />
                   <span className="ml-4 text-lg font-medium text-gray-900">
                     Expert Team
                   </span>
