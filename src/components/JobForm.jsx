@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { X, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-function JobApplicationForm({ isOpen, onClose }) {
+function JobApplicationForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,18 +25,15 @@ function JobApplicationForm({ isOpen, onClose }) {
         submissionData.append(key, value);
       });
 
-      // For now, just log the data
       console.log('FormData values:');
       for (let pair of submissionData.entries()) {
         console.log(`${pair[0]}:`, pair[1]);
       }
 
-      // Simulate delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setIsSubmitted(true);
 
       setTimeout(() => {
-        onClose();
         setIsSubmitted(false);
         setFormData({
           name: '',
@@ -55,12 +52,10 @@ function JobApplicationForm({ isOpen, onClose }) {
     }
   };
 
-  if (!isOpen) return null;
-
   if (isSubmitted) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-        <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full text-center shadow-md">
           <div className="mb-4 flex justify-center">
             <div className="h-16 w-16 bg-purple-100 rounded-full flex items-center justify-center">
               <Check className="h-8 w-8 text-purple-600" />
@@ -74,16 +69,10 @@ function JobApplicationForm({ isOpen, onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div className="bg-white rounded-lg w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-900">Job Application Form</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            <X className="h-6 w-6" />
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10 px-4">
+      <div className="bg-white rounded-lg w-full max-w-2xl shadow-md p-6 overflow-y-auto">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Job Application Form</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           {[
             { label: 'Full Name', type: 'text', key: 'name' },
             { label: 'Email Address', type: 'email', key: 'email' },
@@ -124,18 +113,11 @@ function JobApplicationForm({ isOpen, onClose }) {
             />
           </div>
 
-          <div className="mt-6 flex justify-end space-x-3">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-            >
-              Cancel
-            </button>
+          <div className="flex justify-end">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50"
+              className="px-6 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 disabled:opacity-50"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
