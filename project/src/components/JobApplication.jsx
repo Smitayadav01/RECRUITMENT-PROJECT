@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { X, Check } from 'lucide-react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
-function JobApplicationForm({ isOpen, onClose }) {
+function JobApplicationForm({ isOpen, onClose, jobId }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +12,7 @@ function JobApplicationForm({ isOpen, onClose }) {
     coverLetter: '',
     portfolio: '',
     position: '',
+    jobId: jobId
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,35 +23,29 @@ function JobApplicationForm({ isOpen, onClose }) {
     setIsSubmitting(true);
 
     try {
-      const submissionData = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        submissionData.append(key, value);
-      });
-
-      // For now, just log the data
-      console.log('FormData values:');
-      for (let pair of submissionData.entries()) {
-        console.log(`${pair[0]}:`, pair[1]);
+      const response = await axios.post('http://localhost:5000/api/applications', formData);
+      
+      if (response.status === 201) {
+        setIsSubmitted(true);
+        toast.success('Application submitted successfully!');
+        
+        setTimeout(() => {
+          onClose();
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            resume: null,
+            coverLetter: '',
+            portfolio: '',
+            position: '',
+            jobId: jobId
+          });
+        }, 2000);
       }
-
-      // Simulate delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setIsSubmitted(true);
-
-      setTimeout(() => {
-        onClose();
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          resume: null,
-          coverLetter: '',
-          portfolio: '',
-          position: '',
-        });
-      }, 2000);
     } catch (error) {
+      toast.error('Failed to submit application. Please try again.');
       console.error('Error submitting application:', error);
     } finally {
       setIsSubmitting(false);
@@ -87,24 +84,27 @@ function JobApplicationForm({ isOpen, onClose }) {
           {[
             { label: 'Full Name', type: 'text', key: 'name' },
             { label: 'Email Address', type: 'email', key: 'email' },
-            { label: 'Phone Number', type: 'text', key: 'phone' },
-            { label: 'Portfolio / Website', type: 'url', key: 'portfolio' },
+            { label: 'Phone Number', type: 'tel', key: 'phone' },
+            { label: 'Portfolio / Website', type: 'url', key: 'portfolio', required: false },
             { label: 'Position Applying For', type: 'text', key: 'position' },
-            { label: 'Cover Letter (optional)', type: 'textarea', key: 'coverLetter' },
-          ].map(({ label, type, key }) => (
+            { label: 'Cover Letter', type: 'textarea', key: 'coverLetter', required: false }
+          ].map(({ label, type, key, required = true }) => (
             <div key={key}>
-              <label className="block text-sm font-medium text-gray-700">{label}</label>
+              <label className="block text-sm font-medium text-gray-700">
+                {label} {required && <span className="text-red-500">*</span>}
+              </label>
               {type === 'textarea' ? (
                 <textarea
                   rows="4"
                   value={formData[key]}
                   onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+                  required={required}
                 />
               ) : (
                 <input
                   type={type}
-                  required={key !== 'coverLetter'}
+                  required={required}
                   value={formData[key]}
                   onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
@@ -114,13 +114,20 @@ function JobApplicationForm({ isOpen, onClose }) {
           ))}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Upload Resume (PDF/DOC)</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Upload Resume (PDF/DOC) <span className="text-red-500">*</span>
+            </label>
             <input
               type="file"
               accept=".pdf,.doc,.docx"
               required
               onChange={(e) => setFormData({ ...formData, resume: e.target.files[0] })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500"
+              className="mt-1 block w-full text-sm text-gray-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-md file:border-0
+                file:text-sm file:font-semibold
+                file:bg-purple-50 file:text-purple-700
+                hover:file:bg-purple-100"
             />
           </div>
 

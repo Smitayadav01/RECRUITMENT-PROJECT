@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Users, Menu, X } from 'lucide-react';
-import JobForm from './JobForm';
+import JobForm from './JobApplication';
 import logo from '../assets/logo.png';
 
 
