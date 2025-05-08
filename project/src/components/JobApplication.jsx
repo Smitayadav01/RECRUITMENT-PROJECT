@@ -23,7 +23,7 @@ function JobApplicationForm({ isOpen, onClose, jobId }) {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/applications', formData);
+      const response = await axios.post('/api/applications', formData);
       
       if (response.status === 201) {
         setIsSubmitted(true);
