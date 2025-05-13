@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Navbar from './components/Na';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Blog from './components/Blog';
@@ -25,7 +25,7 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+      <div className="min-h-screen bg-cream-50 dark:bg-gray-900 transition-colors duration-200">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/apply" element={<JobApplication />} />

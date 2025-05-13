@@ -19,6 +19,7 @@ export function useTheme() {
   const toggle = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle('dark');
+    localStorage.theme = isDark ? 'light' : 'dark';
   };
 
   return { isDark, toggle };
